@@ -47,6 +47,12 @@ public class Lexico {
         return c == ' ' || c == '\r' || c == '\n';
     }
 
+    private boolean isEquals(char c){
+        return c == '=';
+    }
+
+    private boolean 
+
     public Token nextToken(){
 
         if(!hasNextChar()){
@@ -62,6 +68,14 @@ public class Lexico {
         if(isSpace(c)){
             return new Token("", 99); 
         }
+
+
+
+
+        if(hasNextChar(c)){
+
+        }
+
         Token token = null;
         
         c = this.nextChar();
