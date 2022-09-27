@@ -51,7 +51,29 @@ public class Lexico {
         return c == '=';
     }
 
-    private boolean 
+    private boolean isCaracterSpecial(char c){
+        return   c == ')' ||  c == '(' || c == '{' || c == '}' ||c == ',' ||c == ';';
+    }
+    
+    private boolean isoPeratorArithmetic(char c){
+        return c == '+' || c == '-' || c =='*' || c =='/' || c == '%';
+    }
+
+    private boolean isoPeratorRelational(char c){
+        return c == '<' || c == '>' || c =='=';
+    }
+
+    private boolean isCaracter(char c){
+        char next = nextChar();
+        while(isSpace(next)){
+            if(!hasNextChar()){
+                break;  
+            }
+            next = nextChar();
+        }
+
+        return true;
+    }
 
     public Token nextToken(){
 
@@ -59,12 +81,15 @@ public class Lexico {
             return new Token("", 99);
         }
         char c = nextChar();
+      
         while(isSpace(c)){
             if(!hasNextChar()){
                 break;
             }
             c = nextChar();
         }
+          
+       
         if(isSpace(c)){
             return new Token("", 99); 
         }
@@ -72,7 +97,7 @@ public class Lexico {
 
 
 
-        if(hasNextChar(c)){
+        if(hasNextChar()){
 
         }
 
